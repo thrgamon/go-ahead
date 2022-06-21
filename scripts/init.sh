@@ -17,3 +17,25 @@ echo "APP_NAME=${app_name}" >> .env
 
 echo "Setting \$DB_NAME to ${app_name}_db"
 echo "DB_NAME=${app_name}_db" >> .env
+
+if [ -z "$DOMAIN_NAME" ]
+then
+  echo "What is the domain?"
+  read domain
+
+  echo "Setting \$DOMAIN_NAME to ${domain}"
+  echo "DOMAIN_NAME=${domain}" >> .env
+else
+  echo "DOMAIN_NAME is already set: $DOMAIN_NAME"
+fi
+
+if [ -z "$DOKKU_REMOTE" ]
+then
+  echo "What is the domain?"
+  read dokku_remote
+
+  echo "Setting \$DOKKU_REMOTE to ${dokku_remote}"
+  echo "DOKKU_REMOTE=${dokku_remote}" >> .env
+else
+  echo "DOKKU_REMOTE is already set: $DOKKU_REMOTE"
+fi
